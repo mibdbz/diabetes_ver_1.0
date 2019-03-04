@@ -1,11 +1,14 @@
 
 package pl.mibdbz.diabetes.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -32,11 +35,23 @@ public class Product {
     @Column(name="fat")
     private float fat;
     
-    @Column(name="product_type_id")
-    private int productTypeId;
+    @OneToOne(cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name="product_type_id")
+    private ProductType productType;
+    
+    
+    
     
     public Product() {
         
+    }
+
+    public Product(String name, int kcal, float carbohydrates, float protein, float fat) {
+        this.name = name;
+        this.kcal = kcal;
+        this.carbohydrates = carbohydrates;
+        this.protein = protein;
+        this.fat = fat;
     }
 
     public int getId() {
@@ -87,18 +102,19 @@ public class Product {
         this.fat = fat;
     }
 
-    public int getProductTypeId() {
-        return productTypeId;
+    public ProductType getProductType() {
+        return productType;
     }
 
-    public void setProductTypeId(int productTypeId) {
-        this.productTypeId = productTypeId;
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
     }
 
     @Override
     public String toString() {
-        return "Product{" + "id=" + id + ", name=" + name + ", kcal=" + kcal + ", carbohydrates=" + carbohydrates + ", protein=" + protein + ", fat=" + fat + ", productTypeId=" + productTypeId + '}';
+        return "Product{" + "id=" + id + ", name=" + name + ", kcal=" + kcal + ", carbohydrates=" + carbohydrates + ", protein=" + protein + ", fat=" + fat + ", productType=" + productType + '}';
     }
+    
     
     
 }

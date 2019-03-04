@@ -27,6 +27,13 @@ public class ProductType {
         
     }
 
+    public ProductType(String name, String shortName) {
+        this.name = name;
+        this.shortName = shortName;
+    }
+    
+
+    
     public int getId() {
         return id;
     }
