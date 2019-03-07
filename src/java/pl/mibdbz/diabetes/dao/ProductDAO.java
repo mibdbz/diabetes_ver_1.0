@@ -8,4 +8,6 @@ import pl.mibdbz.diabetes.entity.Product;
 public interface ProductDAO {
     
     public List<Product> getProducts();
+
+    public void saveProduct(Product theProduct);
 }

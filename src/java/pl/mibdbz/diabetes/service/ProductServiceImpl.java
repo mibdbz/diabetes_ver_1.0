@@ -9,7 +9,7 @@ import pl.mibdbz.diabetes.dao.ProductDAO;
 import pl.mibdbz.diabetes.entity.Product;
 
 @Service
-class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService{
 
     @Autowired
     private ProductDAO productDAO;
@@ -18,6 +18,13 @@ class ProductServiceImpl implements ProductService{
     @Transactional
     public List<Product> getProducts() {
         return productDAO.getProducts();
+    }
+
+    @Override
+    @Transactional
+    public void saveProduct(Product theProduct) {
+        
+        productDAO.saveProduct(theProduct);
     }
     
 }

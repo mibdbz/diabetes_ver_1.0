@@ -7,7 +7,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import pl.mibdbz.diabetes.entity.Product;
 
 @Repository
@@ -26,6 +25,14 @@ public class ProductDAOImpl implements ProductDAO{
         List<Product> products = theQuery.getResultList();
         
         return products;
+    }
+
+    @Override
+    public void saveProduct(Product theProduct) {
+        
+        Session currentSession = sessionFactory.getCurrentSession();
+        
+        currentSession.save(theProduct);
     }
     
 }

@@ -30,6 +30,12 @@
         <div id="container">
             <div id="content">
                 
+                
+                <input type="button" value="Dodaj Produkt" 
+                       onclick="window.location.href='showFormForAdd'; return false;"
+                       class="add-button"
+                />
+                
                 <table>
                     <tr>
                         <th>Nazwa</th>
