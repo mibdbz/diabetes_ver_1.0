@@ -115,6 +115,4 @@ public class Product {
         return "Product{" + "id=" + id + ", name=" + name + ", kcal=" + kcal + ", carbohydrates=" + carbohydrates + ", protein=" + protein + ", fat=" + fat + ", productType=" + productType + '}';
     }
     
-    
-    
 }
