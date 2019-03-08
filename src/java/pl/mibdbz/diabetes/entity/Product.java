@@ -35,7 +35,7 @@ public class Product {
     @Column(name="fat")
     private float fat;
     
-    @OneToOne(cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @OneToOne(cascade={CascadeType.ALL})
     @JoinColumn(name="product_type_id")
     private ProductType productType;
     

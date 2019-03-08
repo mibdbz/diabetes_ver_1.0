@@ -64,7 +64,7 @@
                         
                         <tr>
                             <td><label>Typ Produktu:</label></td>
-                            <td><form:input path="productType" /></td>
+                            <td><form:input path="productType.name" /></td>
                         </tr>
                         
                         <tr>
