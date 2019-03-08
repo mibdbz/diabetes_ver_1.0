@@ -35,6 +35,7 @@
             <h3>Zapisz Produkt</h3>
             
             <form:form action="saveProduct" modelAttribute="product" method="POST">
+                <form:hidden path="id" />
                 <table>
                     <tbody>
                         <tr>

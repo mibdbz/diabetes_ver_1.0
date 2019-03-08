@@ -20,7 +20,7 @@ public class ProductDAOImpl implements ProductDAO{
         
         Session currentSession = sessionFactory.getCurrentSession();
         
-        Query<Product> theQuery = currentSession.createQuery("from Product", Product.class);
+        Query<Product> theQuery = currentSession.createQuery("from Product order by name", Product.class);
         
         List<Product> products = theQuery.getResultList();
         
@@ -32,7 +32,17 @@ public class ProductDAOImpl implements ProductDAO{
         
         Session currentSession = sessionFactory.getCurrentSession();
         
-        currentSession.save(theProduct);
+        currentSession.saveOrUpdate(theProduct);
+    }
+
+    @Override
+    public Product getProduct(int theId) {
+        
+        Session currentSession = sessionFactory.getCurrentSession();
+        
+        Product theProduct = currentSession.get(Product.class, theId);
+        
+        return theProduct;
     }
     
 }

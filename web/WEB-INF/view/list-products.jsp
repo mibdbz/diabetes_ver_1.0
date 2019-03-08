@@ -44,9 +44,15 @@
                         <th>Białka</th>
                         <th>Tłuszcze</th>
                         <th>Kategoria</th>
+                        <th>Opcje</th>
                     </tr>
                     
                     <c:forEach var="tempProduct" items="${products}">
+                        
+                        <c:url var="updateLink" value="/product/showFormForUpdate">
+                            <c:param name="productId" value="${tempProduct.id}" />
+                        </c:url>
+                        
                         <tr>
                             <td>${tempProduct.name}</td>
                             <td>${tempProduct.kcal}</td>
@@ -54,6 +60,7 @@
                             <td>${tempProduct.protein}</td>
                             <td>${tempProduct.fat}</td>
                             <td>${tempProduct.productType.name}</td>
+                            <td><a href="${updateLink}">Aktualizuj</a></td>
                         </tr>
                     </c:forEach>
                         
